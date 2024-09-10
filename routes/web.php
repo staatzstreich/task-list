@@ -55,7 +55,9 @@ $tasks = [
     ),
 ];
 
-Route::get('/', function () use ($tasks) {
+Route::get('/', fn() => redirect()->route('tasks.index'));
+
+Route::get('/tasks', function () use ($tasks) {
     return view('index', ['tasks' => $tasks]);
 })->name('tasks.index');
 
