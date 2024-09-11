@@ -31,9 +31,9 @@
 
 <body class="container mx-auto mt-10 mb-10 max-w-lg">
     <h1 class="mb-4 text-2xl">@yield('title')</h1>
-    <div x-data="{ flash: true }">
+    <div x-data="{ flash: true }" x-init="setTimeout(() => flash = false, 3000)">
         @if (session()->has('success'))
-        <div x-show="flash" class="relative mb-10 rounded border-green-400 bg-green-100 px-4 py-3 text-lg text-green-700" role="alert">
+        <div x-show="flash" class="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 w-96 mb-10 rounded border-green-400 bg-green-100 px-4 py-3 text-lg text-green-700" role="alert">
             <strong class="font-bold">Success!</strong>
             <div>{{ session('success') }}</div>
 
